@@ -1,0 +1,28 @@
+
+u	java:S127ø"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ8³…ÁÜ1
+‡
+java:S1319y"eThe type of "frasi" should be an interface such as "List" rather than the implementation "ArrayList".(ØÂ‡ÿøÿÿÿÿ8´…ÁÜ1
+‰
+java:S1319Ş"lThe type of "frasiLinkate" should be an interface such as "List" rather than the implementation "ArrayList".(î÷ä)8´…ÁÜ1
+
+java:S1319™"lThe type of "frasiLinkate" should be an interface such as "List" rather than the implementation "ArrayList".(øùíúÿÿÿÿ8´…ÁÜ1
+
+java:S1319¯"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ş«îÇ8´…ÁÜ1
+Š
+java:S1319¯"lThe type of "frasiLinkate" should be an interface such as "List" rather than the implementation "ArrayList".(Ş«îÇ8´…ÁÜ1
+ƒ
+java:S1319Ë"eThe type of "frasi" should be an interface such as "List" rather than the implementation "ArrayList".(£Òš†8Ã÷…ÁÜ1
+o
+java:S1104"RMake utente a static final constant or non-public and provide accessors if needed.(«·Ù‚8µ…ÁÜ1
+o
+java:S1104"RMake pagina a static final constant or non-public and provide accessors if needed.(´îŸ¢8µ…ÁÜ1
+u
+java:S1104$"YMake modificaTesto a static final constant or non-public and provide accessors if needed.(¹»ÂR8µ…ÁÜ1
+s
+java:S1104&"QMake testo a static final constant or non-public and provide accessors if needed.(Å–á–ÿÿÿÿÿ8µ…ÁÜ1
+}
+java:S1104+"[Make cronologiaTesto a static final constant or non-public and provide accessors if needed.(éóÿÿÿÿÿ8µ…ÁÜ1
+\
+java:S1117²"9Rename "testo" which hides the field declared at line 38.(Œâ¿úÿÿÿÿ8Ë…ÁÜ1
+u
+java:S3776ä"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(éç˜Šûÿÿÿÿ8Õ…ÁÜ1

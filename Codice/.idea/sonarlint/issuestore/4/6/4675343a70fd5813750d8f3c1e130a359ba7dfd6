@@ -1,0 +1,25 @@
+
+E
+java:S1604N"(Make this anonymous inner class a lambda(ÖãºÂ8ş®¢·Ü1
+E
+java:S1604n"(Make this anonymous inner class a lambda(ó º‘8ş®¢·Ü1
+K
+java:S1604‘"(Make this anonymous inner class a lambda(Ô¶µÿşÿÿÿÿ8ş®¢·Ü1
+x
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(¤½Çûÿÿÿÿ8ÿ®¢·Ü1
+R
+java:S1444"0Make this "public static controller" field final(¤½Çûÿÿÿÿ8ÿ®¢·Ü1
+I
+java:S3010 "'Remove this assignment of "controller".(ÓáÖæûÿÿÿÿ8¯¢·Ü1
+D
+java:S3010!""Remove this assignment of "frame".(Ø Áûÿÿÿÿÿ8¯¢·Ü1
+W
+java:S2209 "5Change this instance-reference to a static reference.(ÓáÖæûÿÿÿÿ8¯¢·Ü1
+R
+java:S2209""5Change this instance-reference to a static reference.(Ğ¾±¦8¯¢·Ü1
+Q
+java:S1874W"/Remove this use of "getText"; it is deprecated.(£ùŠşÿÿÿÿ8“¯¢·Ü1
+_
+java:S1126†"AReplace this if-then-else statement by a single return statement.(„Í“½8–¯¢·Ü1
+F
+java:S1128")Remove this unused import 'model.Utente'.(•óÚØ8—¯¢·Ü1

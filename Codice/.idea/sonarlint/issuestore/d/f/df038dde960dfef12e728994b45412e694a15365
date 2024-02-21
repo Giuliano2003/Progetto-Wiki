@@ -1,0 +1,15 @@
+
+
+java:S1319"lThe type of "frasiLinkate" should be an interface such as "List" rather than the implementation "ArrayList".(Úí ÿÿÿÿÿ8ôÿ×¸Ü1
+
+java:S13197"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¦©ßß8àˆ½Ü1
+t
+java:S1104"RMake titolo a static final constant or non-public and provide accessors if needed.(ù¡ Öüÿÿÿÿ8õÿ×¸Ü1
+z
+java:S1104	"XMake autorePagina a static final constant or non-public and provide accessors if needed.(³ıëşÿÿÿÿ8õÿ×¸Ü1
+s
+java:S1104"QMake testo a static final constant or non-public and provide accessors if needed.(éş¶õıÿÿÿÿ8õÿ×¸Ü1
+r
+java:S1104"PMake tema a static final constant or non-public and provide accessors if needed.(æâñüÿÿÿÿ8õÿ×¸Ü1
+z
+java:S1104"XMake frasiLinkate a static final constant or non-public and provide accessors if needed.(Úí ÿÿÿÿÿ8àˆ½Ü1

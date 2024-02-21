@@ -1,0 +1,11 @@
+
+x
+java:S1104"VMake editorPane a static final constant or non-public and provide accessors if needed.(Íİ—¼øÿÿÿÿ8‡ÁÈ²Ü1
+o
+java:S37764"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(°£óö8‘æâ²Ü1
+W
+java:S2209}"5Change this instance-reference to a static reference.(×°õûÿÿÿÿ8ÜÂÈ²Ü1
+T
+java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8ßÂÈ²Ü1
+W
+java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹8ßÂÈ²Ü1

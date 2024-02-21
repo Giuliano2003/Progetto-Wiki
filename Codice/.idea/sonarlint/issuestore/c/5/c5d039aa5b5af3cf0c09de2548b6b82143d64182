@@ -1,0 +1,37 @@
+
+‡
+java:S1319["jThe type of "temiPagina" should be an interface such as "List" rather than the implementation "ArrayList".(®™®Ÿ8ŸÑÓ¹Ü1
+›
+java:S1319_"yThe type of "frasiSottolineateAppoggio" should be an interface such as "List" rather than the implementation "ArrayList".(Ô„œ¬üÿÿÿÿ8ŸÑÓ¹Ü1
+ƒ
+java:S1319Ï"eThe type of "frasi" should be an interface such as "List" rather than the implementation "ArrayList".(£ð•ï8ŸÑÓ¹Ü1
+K
+java:S1604 "(Make this anonymous inner class a lambda(øžì’ûÿÿÿÿ8 ÑÓ¹Ü1
+F
+java:S1604æ"(Make this anonymous inner class a lambda(îˆÏÌ8 ÑÓ¹Ü1
+F
+java:S1604ï"(Make this anonymous inner class a lambda(…þ©¹8 ÑÓ¹Ü1
+F
+java:S1604÷"(Make this anonymous inner class a lambda(Áƒ›•8 ÑÓ¹Ü1
+s
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(¹å‘þøÿÿÿÿ8¡ÑÓ¹Ü1
+…
+java:S1104C"cMake contenutoPaginaTextArea a static final constant or non-public and provide accessors if needed.(ÔÃ®­øÿÿÿÿ8¡ÑÓ¹Ü1
+s
+java:S1104["VMake temiPagina a static final constant or non-public and provide accessors if needed.(®™®Ÿ8¡ÑÓ¹Ü1
+‡
+java:S1104_"eMake frasiSottolineateAppoggio a static final constant or non-public and provide accessors if needed.(Ô„œ¬üÿÿÿÿ8¡ÑÓ¹Ü1
+M
+java:S1444"+Make this "public static frame" field final(¹å‘þøÿÿÿÿ8¡ÑÓ¹Ü1
+o
+java:S3776k"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(œâðå8ÁÑÓ¹Ü1
+?
+java:S3010m""Remove this assignment of "frame".(ÒíÄ•8ÁÑÓ¹Ü1
+Ÿ
+java:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›™¥…8ËÑÓ¹Ü1
+^	java:S125ˆ"<This block of commented-out lines of code should be removed.(®ÙÏÓüÿÿÿÿ8ÓÑÓ¹Ü1
+Y	java:S125"<This block of commented-out lines of code should be removed.(ÕÔ˜À8ÓÑÓ¹Ü1
+E
+java:S1128"(Remove this unused import 'model.Frase'.(ñžª8ë–½Ü1
+L
+java:S1128"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ8ë–½Ü1

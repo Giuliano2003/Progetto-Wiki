@@ -1,0 +1,15 @@
+
+
+java:S1192Æ"kDefine a constant instead of duplicating this literal "Errore con il recupero delle pagine create" 3 times.(áÈÙúÿÿÿÿ8½§¥±Ü1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ß°«Â8Ê§¥±Ü1
+m
+java:S2095¬"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(³¬ù‘8¤ÚµÜ1
+E
+java:S1128")Remove this unused import 'model.Pagina'.(©¹±"8‘Á·¶Ü1
+Q
+java:S1128	"4Remove this unused import 'java.text.ParsePosition'.(¸à«¤8‘Á·¶Ü1
+T
+java:S1128
+"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8’Á·¶Ü1
+P
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8’Á·¶Ü1

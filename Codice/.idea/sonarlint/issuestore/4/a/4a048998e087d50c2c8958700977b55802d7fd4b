@@ -1,0 +1,13 @@
+
+ƒ
+java:S1319b"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8Ç®†¶Ü1
+
+java:S1319b"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8Ç®†¶Ü1
+€
+java:S1319b"cThe type of "ore" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8Ç®†¶Ü1
+x
+java:S1104"VMake controller a static final constant or non-public and provide accessors if needed.(…Ù“ùùÿÿÿÿ8É®†¶Ü1
+W
+java:S2209%"5Change this instance-reference to a static reference.(×°õûÿÿÿÿ8æ®†¶Ü1
+\
+java:S1161B":Add the "@Override" annotation above this method signature(Ä Ïúüÿÿÿÿ8ğ®†¶Ü1
