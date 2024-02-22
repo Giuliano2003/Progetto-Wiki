@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -112,12 +113,12 @@ public class VisualizzaStoria {
      */
     public void initStoriaTesto(ArrayList<String> frasi, ArrayList<String> paginaDestinazione,ArrayList<String> autoreModifica) throws SQLException {
         ArrayList<java.sql.Date> datasql=new ArrayList<>();
-        ArrayList<Timestamp> orasql=new ArrayList<>();
-        controller.setCronologiaTesti(frasi,paginaDestinazione,autoreModifica,datasql,orasql);
+        ArrayList<Time> orasql= new ArrayList<>();
         String titolopagina = controller.getTitolo();
         controller.setPagina(titolopagina);
         controller.setTesto();
         controller.setCronologiaTesto();
+        controller.setCronologiaTesti(frasi,paginaDestinazione,autoreModifica,datasql,orasql);
         /*
         Pagina pagina = new Pagina(titolopagina);
         Testo testo = new Testo(pagina);
@@ -129,14 +130,19 @@ public class VisualizzaStoria {
         // Testo HTML da aggiungere
         StringBuilder htmlText = new StringBuilder("<html><body style='background-color: #F5F5F5;'>");
         htmlText.append("<h1 style='font-size: 36px; color: #333;'>Storia del testo</h1>");
+        //htmlText.append("<h1 style='font-size: 30px; color: #333;'>Il Testo Non Ha Subito Cambiamenti !</h1>");
         java.sql.Date lastDate = null;
-        Timestamp lastTime = null;
+        Time lastTime = null;
         // qui setto la pagina con la modifica
         ArrayList<String> pagineLinkate = new ArrayList<>();
+        if(size == 0)
+        {
+            htmlText.append("<h1 style='font-size: 30px; color: #333;'>Il Testo Non Ha Subito Cambiamenti !</h1>");
+        }
         // qui quella passata
         for (int i = 0; i < size; i++) {
             java.sql.Date datacsql = datasql.get(i);
-            Timestamp oracsql = orasql.get(i);
+            Time oracsql = orasql.get(i);
             String contenuto=controller.getContenutoPagina(titolopagina,datacsql,oracsql);
             controller.setFrasiLinkate(titolopagina,pagineLinkate);
             for (String s: pagineLinkate) {
@@ -151,6 +157,7 @@ public class VisualizzaStoria {
                     frasiLinkate.add(s);
                 }
             }
+
             makeFrasi(contenuto); // mi costruisce le frasi del testo che ha la modifica
             // Se la data o l'ora corrente sono diverse dall'ultima data e ora visualizzate, inserisci un nuovo paragrafo con la nuova data e ora
             if (lastDate == null || !datacsql.equals(lastDate) || !oracsql.equals(lastTime)) {

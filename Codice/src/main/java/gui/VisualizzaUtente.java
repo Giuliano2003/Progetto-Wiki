@@ -4,6 +4,8 @@ import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 
 /**
@@ -43,7 +45,13 @@ public class VisualizzaUtente {
         frame = new JFrame("Visualizza Le Statistiche Di : "+controller.getUsernameRichiedente());
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                frameChiamante.setEnabled(true);
+                frameChiamante.setVisible(true);
+            }
+        });
         editorPane = new JEditorPane();
         editorPane.setEditable(false);
         int pagineCreate=controller.getPagineCreate(controller.getUsernameRichiedente());
@@ -62,6 +70,7 @@ public class VisualizzaUtente {
         frame.pack();
         frame.setLocationRelativeTo(frameChiamante);
         frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+
     }
 
     /**

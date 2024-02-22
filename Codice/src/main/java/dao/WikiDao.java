@@ -243,7 +243,7 @@ public interface WikiDao {
      * @see Date
      * @see Timestamp
      */
-    public void setCronologiaTestiDB(List<String> frasi,List<String> pagineDestinazione, List<String>autoreModifica, String titoloPagina, List<java.sql.Date> datasql,List<Timestamp> orasql);
+    public void setCronologiaTestiDB(List<String> frasi,List<String> pagineDestinazione, List<String>autoreModifica, String titoloPagina, List<java.sql.Date> datasql,List<Time> orasql);
 
     /**
      * Mi restituisce l'autore della pagina in ingresso.
@@ -316,7 +316,7 @@ public interface WikiDao {
      * @return Il contenuto della testo sottoforma di stringa
      * @see Pagina
      */
-    public String getcontenutoPaginaModificataDB(String titolopagina, java.sql.Date dataCreazione,Timestamp oraCreazione);
+    public String getcontenutoPaginaModificataDB(String titolopagina, java.sql.Date dataCreazione,Time oraCreazione);
 
     /**
      * Metodo che aggiunge i temi della pagina al database.

@@ -99,6 +99,26 @@ public class CreaPagina {
     HashMap<String,String> hashMap = new HashMap<>();
 
     /**
+     * contenuto della pagina inizialmente vuoto,serve per non far perdere i progressi all'utente quando scrive
+     */
+    String contenuto = "";
+    /**
+     * Titolo della pagina inizialmente vuoto,serve per non far perdere i progressi all'utente quando scrive
+     */
+
+    String titoloPagina = "";
+
+    /**
+     * * fraseDaLinkare inizialmente vuoto,serve per non far perdere i progressi all'utente quando scrive
+     */
+    String fraseDaLinkare = "";
+    /**
+     * * paginaDestinazione inizialmente vuoto,serve per non far perdere i progressi all'utente quando scrive
+     */
+
+    String paginaDestinazione = "";
+
+    /**
      * Instanzia una  Crea pagina.
      *
      * @param frameChiamante Il frame chiamante della home
@@ -153,7 +173,13 @@ public class CreaPagina {
         contenutoPaginaTextArea.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
+                contenuto = contenutoPaginaTextArea.getText();
+                contenutoPaginaTextArea.setText(contenuto);
+            }
 
+            @Override
+            public void focusGained(FocusEvent e) {
+                contenutoPaginaTextArea.setText(contenuto);
             }
         });
 
@@ -190,26 +216,26 @@ public class CreaPagina {
         titoloPaginaTextField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
-                titoloPaginaTextField.setText("");
+                titoloPaginaTextField.setText(titoloPagina);
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                String t = titoloPaginaTextField.getText();
-                titoloPaginaTextField.setText(t);
+                titoloPagina=titoloPaginaTextField.getText();
+                titoloPaginaTextField.setText(titoloPagina);
             }
         });
 
         fraseCollegamentoTextField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
-                        //ovverride
+                fraseCollegamentoTextField.setText(fraseDaLinkare);
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                String t = titoloPaginaTextField.getText();
-                titoloPaginaTextField.setText(t);
+                fraseDaLinkare=fraseCollegamentoTextField.getText();
+                fraseCollegamentoTextField.setText(fraseDaLinkare);
             }
 
         });
@@ -217,13 +243,13 @@ public class CreaPagina {
         paginaDestinazioneTextField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
-                paginaDestinazioneTextField.setText("");
+                paginaDestinazioneTextField.setText(paginaDestinazione);
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                String t = titoloPaginaTextField.getText();
-                titoloPaginaTextField.setText(t);
+                paginaDestinazione=paginaDestinazioneTextField.getText();
+                paginaDestinazioneTextField.setText(paginaDestinazione);
             }
         });
 

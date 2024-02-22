@@ -53,7 +53,6 @@ public class Frase {
              parole) {
             System.out.print(" "+s);
         }
-        System.out.println("Fine");
     }
 
     public ArrayList<String> getParole() {

@@ -1,15 +1,21 @@
 
 
-java:S1192Æ"kDefine a constant instead of duplicating this literal "Errore con il recupero delle pagine create" 3 times.(áÈÙúÿÿÿÿ8½§¥±Ü1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ß°«Â8Ê§¥±Ü1
+java:S1192Ö"kDefine a constant instead of duplicating this literal "Errore con il recupero delle pagine create" 3 times.(áÈÙúÿÿÿÿ8Ì›ñàÜ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ß°«Â8Ñ›ñàÜ1
+i
+java:S2095;"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ğ­Ï8“ñàÜ1
 m
-java:S2095¬"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(³¬ù‘8¤ÚµÜ1
+java:S2095¼"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(³¬ù‘8“ñàÜ1
+L
+java:S20935"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8™ñàÜ1
+L	java:S106b"+Replace this use of System.out by a logger.(ªàÂ§ıÿÿÿÿ8›ñàÜ1
+L	java:S106~"+Replace this use of System.out by a logger.(ªàÂ§ıÿÿÿÿ8¼”òàÜ1
+M	java:S106"+Replace this use of System.out by a logger.(ªàÂ§ıÿÿÿÿ8 ÃòàÜ1
 E
-java:S1128")Remove this unused import 'model.Pagina'.(©¹±"8‘Á·¶Ü1
+java:S1128")Remove this unused import 'model.Pagina'.(©¹±"8°®ÊÿÜ1
 Q
-java:S1128	"4Remove this unused import 'java.text.ParsePosition'.(¸à«¤8‘Á·¶Ü1
+java:S1128"4Remove this unused import 'java.text.ParsePosition'.(¸à«¤8°®ÊÿÜ1
 T
-java:S1128
-"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8’Á·¶Ü1
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8°®ÊÿÜ1
 P
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8’Á·¶Ü1
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8°®ÊÿÜ1

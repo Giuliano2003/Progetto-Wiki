@@ -45,6 +45,7 @@ public class StoriaPagine {
             @Override
             public void windowClosed(WindowEvent e) {
                 framechiamante.setEnabled(true);
+                framechiamante.setVisible(true);
             }
         });
         this.controller=controller;

@@ -574,7 +574,7 @@ public class Controller {
      * @param orasql             Ora in formato sql
      * @throws SQLException the sql exception
      */
-    public void setCronologiaTesti(List<String> frasi,List<String> pagineDestinazione, List<String> autoreModifica, List<java.sql.Date> datasql,List<Timestamp> orasql) throws SQLException {
+    public void setCronologiaTesti(List<String> frasi, List<String> pagineDestinazione, List<String> autoreModifica, List<java.sql.Date> datasql, ArrayList<Time> orasql) throws SQLException {
             WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
             wikiImplementazionePostgresDao.setCronologiaTestiDB(frasi,pagineDestinazione,autoreModifica,this.getTitolo(),datasql,orasql);
         }
@@ -666,7 +666,7 @@ public class Controller {
      * @throws SQLException the sql exception
      * mi restituisce il contenuto della pagina dato il titolo,la data e l'ora
      */
-    public String getContenutoPagina(String titolopagina, java.sql.Date datacreazione, Timestamp oraCreazione) throws SQLException {
+    public String getContenutoPagina(String titolopagina, java.sql.Date datacreazione, Time oraCreazione) throws SQLException {
             WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
             return wikiImplementazionePostgresDao.getcontenutoPaginaModificataDB(titolopagina,datacreazione,oraCreazione);
         }

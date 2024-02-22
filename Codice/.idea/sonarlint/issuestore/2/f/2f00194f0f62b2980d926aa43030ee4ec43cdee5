@@ -1,23 +1,23 @@
 
 ƒ
-java:S1319u"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8–¼ŞÜ1
+java:S1319v"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8–¼ŞÜ1
 
-java:S1319u"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8—¼ŞÜ1
+java:S1319v"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8—¼ŞÜ1
 €
-java:S1319u"cThe type of "ore" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8—¼ŞÜ1
+java:S1319v"cThe type of "ore" should be an interface such as "List" rather than the implementation "ArrayList".(Ü¶­8—¼ŞÜ1
 ‰
-java:S1319‰"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
+java:S1319Š"fThe type of "titoli" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
 ‡
-java:S1319‰"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
+java:S1319Š"dThe type of "date" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
 †
-java:S1319‰"cThe type of "ore" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
+java:S1319Š"cThe type of "ore" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
 ‰
-java:S1319‰"fThe type of "autori" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
+java:S1319Š"fThe type of "autori" should be an interface such as "List" rather than the implementation "ArrayList".(ı×Å‹ıÿÿÿÿ8—¼ŞÜ1
 x
 java:S1104 "VMake controller a static final constant or non-public and provide accessors if needed.(…Ù“ùùÿÿÿÿ8˜¼ŞÜ1
 k
-java:S2259g"NA "NullPointerException" could be thrown; "visualizzaStoria" is nullable here.(ÔËúâ8¨¼ŞÜ1
+java:S2259h"NA "NullPointerException" could be thrown; "visualizzaStoria" is nullable here.(ÔËúâ8¨¼ŞÜ1
 W
-java:S2209+"5Change this instance-reference to a static reference.(×°õûÿÿÿÿ8­¼ŞÜ1
+java:S2209+"5Change this instance-reference to a static reference.(×°õûÿÿÿÿ8İıŒíÜ1
 \
-java:S1161Z":Add the "@Override" annotation above this method signature(Ä Ïúüÿÿÿÿ8¹¼ŞÜ1
+java:S1161[":Add the "@Override" annotation above this method signature(Ä Ïúüÿÿÿÿ8¹¼ŞÜ1

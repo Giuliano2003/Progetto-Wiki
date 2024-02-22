@@ -62,7 +62,7 @@ public class ModificaPagina {
     public ModificaPagina(JFrame frameChiamante, Controller controller) throws SQLException {
         this.controller=controller;
         frame = new JFrame("Modifica il tuo testo");
-        frame.setSize(500, 400);
+        frame.setSize(1000, 800);
         frame.setLocationRelativeTo(frameChiamante);
         frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -140,6 +140,7 @@ public class ModificaPagina {
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null,"Errore nella modifica");
                 }
+                salvaButton.setEnabled(false);
             }
         });
 

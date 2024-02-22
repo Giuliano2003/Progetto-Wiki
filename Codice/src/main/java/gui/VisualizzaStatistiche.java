@@ -96,10 +96,12 @@ public class VisualizzaStatistiche {
                     }
                     else {
                         if(esito.get(i).equals("t")) {
-                            Object[] row = {testirichiesti.get(i), "Proposta Accettata", autorepagina.get(i), titolopagina.get(i)};
-                            // Controlla se la riga è già presente nella tabella prima di aggiungerla
-                            if (!isRowAlreadyAdded(model, row)) {
-                                model.addRow(row);
+                            if(autorepagina.get(i).equals(controller.getNomeUtente())) {
+                                Object[] row = {testirichiesti.get(i), "Proposta Accettata","L'Autore Della Pagina Sei Tu", titolopagina.get(i)};
+                                // Controlla se la riga è già presente nella tabella prima di aggiungerla
+                                if (!isRowAlreadyAdded(model, row)) {
+                                    model.addRow(row);
+                                }
                             }
                         }
                         else {

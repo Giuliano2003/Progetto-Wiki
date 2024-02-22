@@ -168,6 +168,7 @@ public class VisualizzaNotifiche {
                 try {
                     VisualizzaUtente visualizzaUtente = new VisualizzaUtente(frame,controller);
                     visualizzaUtente.mostraFinestra();
+                    frame.setEnabled(false);
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null,"Errore con il visual dell'utente");
                 }

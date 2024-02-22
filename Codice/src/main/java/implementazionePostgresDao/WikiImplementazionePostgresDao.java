@@ -5,6 +5,9 @@ import database.ConnessioneDatabase;
 import model.Pagina;
 
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -45,19 +48,26 @@ public class WikiImplementazionePostgresDao implements WikiDao {
     @Override
     public int addUtenteDB(String nome, String password, String email) {
         int flag = 0;
+        String filePath = "popolaDB1.txt";
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("insert into utente (NomeUtente,password,email) values (?,?,?)");
             preparedStatement.setString(1, nome);
             preparedStatement.setString(2, password);
             preparedStatement.setString(3, email);
+            FileWriter fileWriter = new FileWriter(filePath);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            String testo = preparedStatement.toString();
+            bufferedWriter.write(testo);
             preparedStatement.executeUpdate();
+            bufferedWriter.close();
         } catch (SQLException e) {
             flag = 1;
             JOptionPane.showMessageDialog(null, "Errore nell'inserimento dell'utente");
             e.printStackTrace();
-        }
-        finally {
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null,"Errore apertura file !");
+        } finally {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
@@ -84,6 +94,8 @@ public class WikiImplementazionePostgresDao implements WikiDao {
             preparedStatement.setString(1, contenuto);
             preparedStatement.setString(2, collegamento);
             preparedStatement.executeUpdate();
+            String testo = preparedStatement.toString();
+            System.out.println(""+testo);
             // Altre operazioni o logica di business qui
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,6 +122,8 @@ public class WikiImplementazionePostgresDao implements WikiDao {
             preparedStatement = connection.prepareStatement("insert into Frase (contenuto) values (?)");
             preparedStatement.setString(1, contenuto);
             preparedStatement.executeUpdate();
+            String testo = preparedStatement.toString();
+            System.out.println(""+testo);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Errore con inserimento frasi");
             e.printStackTrace();
@@ -139,6 +153,8 @@ public class WikiImplementazionePostgresDao implements WikiDao {
             preparedStatement = connection.prepareStatement("insert into pagina (titolo,autore) values (?,?)");
             preparedStatement.setString(1, titolo);
             preparedStatement.setString(2, nomeAutore);
+            String testo = preparedStatement.toString();
+            System.out.println(""+testo);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Errore inserimento Pagina");
@@ -687,7 +703,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
     //è grazie alla data e all'ora che riusciamo ad
     //individuare il distacco da una pagina all'altra, cioè quando finiscono le frasi di una pagina
     //e ne incomincia un altra.
-    public void setCronologiaTestiDB(List<String> frasi, List<String> pagineDestinazione, List<String> autoreModifica, String titoloPagina, List<java.sql.Date> datasql,List<Timestamp> orasql) {
+    public void setCronologiaTestiDB(List<String> frasi, List<String> pagineDestinazione, List<String> autoreModifica, String titoloPagina, List<java.sql.Date> datasql,List<Time> orasql) {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("select distinct ct.contenutofrase,ct.paginadestinazione,ct.paginariferimento,ct.datainserimento,ct.orainserimento,ct.proprietariomodifica,ct.idcronologia from cronologiatesto ct where ct.paginariferimento = ? order by idCronologia");
@@ -697,7 +713,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
                 frasi.add(rs.getString(1));
                 pagineDestinazione.add(rs.getString(2));
                 datasql.add(rs.getDate(4));
-                orasql.add(rs.getTimestamp(5));
+                orasql.add(rs.getTime(5));
                 autoreModifica.add(rs.getString(6));
             }
         } catch (SQLException e) {
@@ -961,12 +977,12 @@ public class WikiImplementazionePostgresDao implements WikiDao {
      */
 
     @Override
-    public String getcontenutoPaginaModificataDB(String titolopagina, java.sql.Date dataCreazione, Timestamp oraCreazione) {
+    public String getcontenutoPaginaModificataDB(String titolopagina, java.sql.Date dataCreazione, Time oraCreazione) {
         PreparedStatement preparedStatement = null;
         try{
             preparedStatement = connection.prepareStatement("SELECT testorichiesto from modificatesto where paginariferimento = ? and oraaccettazione = ? and dataaccettazione=?");
             preparedStatement.setString(1,titolopagina);
-            preparedStatement.setTimestamp(2,oraCreazione);
+            preparedStatement.setTime(2,oraCreazione);
             preparedStatement.setDate(3,dataCreazione);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next())
@@ -986,7 +1002,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
                 }
             }
         }
-        return null;
+        return "";
     }
 
     /**
