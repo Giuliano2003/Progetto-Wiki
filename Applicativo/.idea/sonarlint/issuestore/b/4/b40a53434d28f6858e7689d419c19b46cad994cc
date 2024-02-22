@@ -1,27 +1,21 @@
 
 ƒ
-java:S1319"fThe type of "parole" should be an interface such as "List" rather than the implementation "ArrayList".(ÕÿœĞ8·Ä¹øÖ1
-”
-java:S1319	"rThe type of "testo_appartenente" should be an interface such as "List" rather than the implementation "ArrayList".(‰Ì¶ÿÿÿÿÿ8·Ä¹øÖ1
+java:S1319	"fThe type of "parole" should be an interface such as "List" rather than the implementation "ArrayList".(ÕÿœĞ8·Ä¹øÖ1
+“
+java:S1319"qThe type of "testoAppartenenza" should be an interface such as "List" rather than the implementation "ArrayList".(­¾“±ÿÿÿÿÿ8¸Ä¹øÖ1
 
-java:S1319:"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ú×•ö8¸Ä¹øÖ1
-r	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Åıêùÿÿÿÿ8¸Ä¹øÖ1
+java:S1319E"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ú×•ö8Ì¨¼‰İ1
+r	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äß¸Âøÿÿÿÿ8¸Ä¹øÖ1
 o
-java:S1104"RMake parole a static final constant or non-public and provide accessors if needed.(ÕÿœĞ8¸Ä¹øÖ1
-|
-java:S1104"_Make pagina_destinazione a static final constant or non-public and provide accessors if needed.(ø®ÈŠ8¸Ä¹øÖ1
+java:S1104	"RMake parole a static final constant or non-public and provide accessors if needed.(ÕÿœĞ8¸Ä¹øÖ1
 €
-java:S1104	"^Make testo_appartenente a static final constant or non-public and provide accessors if needed.(‰Ì¶ÿÿÿÿÿ8¸Ä¹øÖ1
-z
-java:S1104M"^Make paginaDestinazione a static final constant or non-public and provide accessors if needed.(—Šì78¸Ä¹øÖ1
-z	java:S116"^Rename this field "pagina_destinazione" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø®ÈŠ8ÀÄ¹øÖ1
-~	java:S116	"]Rename this field "testo_appartenente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Ì¶ÿÿÿÿÿ8ÀÄ¹øÖ1
-]	java:S125"<This block of commented-out lines of code should be removed.(‹ÅÊ¨øÿÿÿÿ8ÇÄ¹øÖ1
-X	java:S125""<This block of commented-out lines of code should be removed.(‹¾ƒ»8ÇÄ¹øÖ1
+java:S1104"^Make paginaDestinazione a static final constant or non-public and provide accessors if needed.(Ì£Üßıÿÿÿÿ8­Ä»‰İ1
+
+java:S1104"]Make testoAppartenenza a static final constant or non-public and provide accessors if needed.(­¾“±ÿÿÿÿÿ8Ì¨¼‰İ1
 V
-java:S11173"9Rename "parole" which hides the field declared at line 6.(üòæä8ÉÄ¹øÖ1
-L	java:S1066"+Replace this use of System.out by a logger.(’âŸ€øÿÿÿÿ8ÊÄ¹øÖ1
+java:S1117:"9Rename "parole" which hides the field declared at line 9.(üòæä8ÉÄ¹øÖ1
+L	java:S106="+Replace this use of System.out by a logger.(’âŸ€øÿÿÿÿ8ÊÄ¹øÖ1
 V
-java:S1117D"9Rename "parole" which hides the field declared at line 6.(üòæä8ËÄ¹øÖ1
+java:S1117Z"9Rename "parole" which hides the field declared at line 9.(üòæä8ËÄ¹øÖ1
 c
-java:S1126E"AReplace this if-then-else statement by a single return statement.(ÙÃüøÿÿÿÿ8ÌÄ¹øÖ1
+java:S1126["AReplace this if-then-else statement by a single return statement.(ÙÃüøÿÿÿÿ8ÌÄ¹øÖ1

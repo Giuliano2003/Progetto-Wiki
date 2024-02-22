@@ -42,6 +42,10 @@ public class Controller {
      */
     public CronologiaTesto cronologiaTesto = new CronologiaTesto();
 
+    /**
+     * Gli autori delle pagine
+     */
+    Autore autore = new Autore();
 
     public Controller()
         {
@@ -56,7 +60,6 @@ public class Controller {
     public void setCronologiaTesto(CronologiaTesto cronologiaTesto) {
             this.cronologiaTesto = cronologiaTesto;
         }
-
     /**
      * Set pagina.
      *
@@ -286,6 +289,9 @@ public class Controller {
     public void addPagina(String titolo,String nomeAutore) throws SQLException {
             WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
             wikiImplementazionePostgresDao.addPaginaDB(titolo,nomeAutore);
+            Pagina pagina1 = new Pagina(titolo);
+            autore.pagineCreate.add(pagina1);
+
         }
 
 
@@ -338,6 +344,11 @@ public class Controller {
     public void addModifichetesto(String contenuto,String nomeAutore,String titoloPagina) throws SQLException {
             WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
             wikiImplementazionePostgresDao.addModifichetestoDB(contenuto,nomeAutore,titoloPagina);
+            Utente utente1 = new Utente(nomeAutore);
+            Pagina pagina1 = new Pagina(titoloPagina);
+            Testo testo1 = new Testo(pagina1);
+            ModificaTesto modificaTesto1 = new ModificaTesto(utente1,testo1,contenuto);
+            utente.modificheTesto.add(modificaTesto1);
         }
 
     /**

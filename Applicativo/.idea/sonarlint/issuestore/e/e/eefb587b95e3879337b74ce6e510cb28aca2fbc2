@@ -1,9 +1,11 @@
 
 r
-java:S1104"UMake contenuto a static final constant or non-public and provide accessors if needed.(‹Ë³î8‰—ê‡Û1
-u
-java:S1104	"XMake dataModifica a static final constant or non-public and provide accessors if needed.(”ó™8Š—ê‡Û1
-y
-java:S1104"WMake oraModifica a static final constant or non-public and provide accessors if needed.(ú­¢²ıÿÿÿÿ8Š—ê‡Û1
+java:S1104"UMake contenuto a static final constant or non-public and provide accessors if needed.(‹Ë³î8îÏª‰İ1
+€
+java:S1104"^Make paginaDestinazione a static final constant or non-public and provide accessors if needed.(¿Ø£°üÿÿÿÿ8•ä­‰İ1
+x
+java:S1104"[Make dataInserimento a static final constant or non-public and provide accessors if needed.(ÖÅçº8Ò­«‰İ1
+w
+java:S1104""ZMake oraInserimento a static final constant or non-public and provide accessors if needed.(ÔùÒ8Ò­«‰İ1
 ~
-java:S1104"\Make testoRiferimento a static final constant or non-public and provide accessors if needed.(Ù³Ä¿úÿÿÿÿ8Š—ê‡Û1
+java:S1104'"\Make testoRiferimento a static final constant or non-public and provide accessors if needed.(Ù³Ä¿úÿÿÿÿ8ïÏª‰İ1

@@ -1,15 +1,13 @@
 
 ‚
-java:S1104"`Make testoRichiestoUtente a static final constant or non-public and provide accessors if needed.(şÊüøÿÿÿÿ8°Æ˜‡Ü1
+java:S1104"`Make testoRichiestoUtente a static final constant or non-public and provide accessors if needed.(şÊüøÿÿÿÿ8òƒ¾Šİ1
 s
-java:S1104"QMake esito a static final constant or non-public and provide accessors if needed.(Ëò´Áÿÿÿÿÿ8¾Æ˜‡Ü1
+java:S1104"QMake esito a static final constant or non-public and provide accessors if needed.(Ëò´Áÿÿÿÿÿ8òƒ¾Šİ1
 v
-java:S1104	"YMake dataCreazione a static final constant or non-public and provide accessors if needed.(ÿò¶„8ÈÆ˜‡Ü1
+java:S1104"YMake dataCreazione a static final constant or non-public and provide accessors if needed.(ÿò¶„8òƒ¾Šİ1
 z
-java:S1104"XMake oraCreazione a static final constant or non-public and provide accessors if needed.(Â£½õÿÿÿÿÿ8ÒÆ˜‡Ü1
+java:S1104"XMake oraCreazione a static final constant or non-public and provide accessors if needed.(Â£½õÿÿÿÿÿ8òƒ¾Šİ1
 o
-java:S1104"RMake utente a static final constant or non-public and provide accessors if needed.(«·Ù‚8ÒÆ˜‡Ü1
+java:S1104!"RMake utente a static final constant or non-public and provide accessors if needed.(«·Ù‚8òƒ¾Šİ1
 ~
-java:S1104"\Make testoRiferimento a static final constant or non-public and provide accessors if needed.(Ù³Ä¿úÿÿÿÿ8ßÆ˜‡Ü1
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ò”¦Â8ÁÂ¾‡Ü1
+java:S1104&"\Make testoRiferimento a static final constant or non-public and provide accessors if needed.(Ù³Ä¿úÿÿÿÿ8òƒ¾Šİ1
