@@ -1,2 +1,2 @@
 # Progetto-Wiki
-Una Wiki in cui Puoi cercare, creare e modificare pagine
+Una Wiki Dove Gli Utenti possono cercare, creare e modificare le loro pagine.
