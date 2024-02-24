@@ -11,7 +11,7 @@ import java.net.URL;
 import java.sql.SQLException;
 
 /**
- * //la classe home che permette di accedere alle funzionalità della pagina
+ * The type Home.
  */
 public class Home {
 

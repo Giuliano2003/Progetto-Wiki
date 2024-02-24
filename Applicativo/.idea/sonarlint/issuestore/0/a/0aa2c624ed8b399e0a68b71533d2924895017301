@@ -1,10 +1,0 @@
-
-Ž
-java:S1319"lThe type of "pagineCreate" should be an interface such as "List" rather than the implementation "ArrayList".(ö¤‰úÿÿÿÿ8­¹·‰Ý1
-n
-java:S1104"SMake H_index a static final constant or non-public and provide accessors if needed.(–ÅÑ¥ýÿÿÿÿ
-z
-java:S1104"XMake pagineCreate a static final constant or non-public and provide accessors if needed.(ö¤‰úÿÿÿÿ8­¹·‰Ý1
-l	java:S116"RRename this field "H_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÅÑ¥ýÿÿÿÿ
->
-java:S11856"(Remove this method to simply inherit it.(ú´­÷

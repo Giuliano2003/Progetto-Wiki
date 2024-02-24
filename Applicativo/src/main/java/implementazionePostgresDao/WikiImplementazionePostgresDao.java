@@ -181,7 +181,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
     public void cercaPaginaDB(String titolo, List<String> frasiPaginaCercata) {
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement("select f.contenuto from pagina p,pagina_frase pf,frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ?");
+            preparedStatement = connection.prepareStatement("select f.contenuto from pagina p,pagina_frase pf,frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ? order by f.idfrase");
             preparedStatement.setString(1, titolo);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -385,7 +385,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
         ArrayList<String> frasiLinkate = new ArrayList<>();
         PreparedStatement preparedStatement=null;
         try {
-            preparedStatement = connection.prepareStatement("select f.contenuto from  pagina p , pagina_frase pf, frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ? and f.paginadestinazione is not null");
+            preparedStatement = connection.prepareStatement("select f.contenuto from  pagina p , pagina_frase pf, frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ? and f.paginadestinazione is not null order by f.idfrase");
             preparedStatement.setString(1, titolo);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -419,7 +419,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
         ArrayList<String> contenuto = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement("select f.contenuto from  pagina p , pagina_frase pf, frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ?");
+            preparedStatement = connection.prepareStatement("select f.contenuto from  pagina p , pagina_frase pf, frase f where p.titolo=pf.titolopagina and pf.idfrase = f.idfrase and p.titolo = ? order by f.idfrase");
             preparedStatement.setString(1, titolo);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -776,7 +776,7 @@ public class WikiImplementazionePostgresDao implements WikiDao {
     public void setFrasiPaginaDB(String titolo, List<String> frasi, List<String> pagineDestinazioni) {
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement("select f.contenuto,f.paginadestinazione from pagina_frase pf,frase f where pf.idfrase = f.idfrase and pf.titolopagina= ?");
+            preparedStatement = connection.prepareStatement("select f.contenuto,f.paginadestinazione from pagina_frase pf,frase f where pf.idfrase = f.idfrase and pf.titolopagina= ? order by f.idfrase");
             preparedStatement.setString(1, titolo);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

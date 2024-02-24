@@ -1,11 +1,0 @@
-
-‹
-java:S1319Z"nThe type of "modificheTesto" should be an interface such as "List" rather than the implementation "ArrayList".(ÆÌÉ8àŞ¬Šİ1
-j
-java:S1104"TMake username a static final constant or non-public and provide accessors if needed.(Ü±›Ô
-l
-java:S1104"QMake email a static final constant or non-public and provide accessors if needed.(¾Æ†Ëıÿÿÿÿ
-v
-java:S1104"[Make numeroModifiche a static final constant or non-public and provide accessors if needed.(ÉöàÔúÿÿÿÿ
-w
-java:S1104Z"ZMake modificheTesto a static final constant or non-public and provide accessors if needed.(ÆÌÉ8áŞ¬Šİ1
