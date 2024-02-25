@@ -103,6 +103,14 @@ public class VisualizzaStatistiche {
                                     model.addRow(row);
                                 }
                             }
+                            else
+                            {
+                                Object[] row = {testirichiesti.get(i), "Proposta Accettata",autorepagina.get(i), titolopagina.get(i)};
+                                // Controlla se la riga è già presente nella tabella prima di aggiungerla
+                                if (!isRowAlreadyAdded(model, row)) {
+                                    model.addRow(row);
+                                }
+                            }
                         }
                         else {
                             Object[] row = {testirichiesti.get(i), "Proposta Rifiutata", autorepagina.get(i), titolopagina.get(i)};

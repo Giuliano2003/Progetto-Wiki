@@ -353,9 +353,24 @@ public interface WikiDao {
     /**
      * Metodo utilizzato per cancellare una pagina dal database.
      *
-     * @param titolo il titolo della pagina che sto cancellandoean
+     * @param titolo il titolo della pagina che sto cancellando
      * @see Pagina
      */
     public void deletePaginaDB(String titolo);
+
+    /**
+     * Metodo che restituisce l'ora creazione della pagina
+     * @param titolo il titolo della pagina
+     * @return un time che mi indica l'ora di creazione della pagina
+     */
+    public Time getOraCreazioneDB(String titolo);
+
+    /**
+     * Metodo che restituisce la data di creazione della pagina
+     * @param titolo il titolo della pagina
+     * @return una date che contiene la datacreazione della pagina
+     */
+    public Date getDataCreazioneDB(String titolo);
+
 
 }

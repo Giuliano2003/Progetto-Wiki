@@ -11,6 +11,8 @@ import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.Array;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -65,6 +67,43 @@ public class ModificaPagina {
         frame.setSize(1000, 800);
         frame.setLocationRelativeTo(frameChiamante);
         frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                frameChiamante.setEnabled(true);
+                frameChiamante.setVisible(true);
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
         frame.setLayout(new BorderLayout());
 
         // Etichetta in alto a sinistra
@@ -147,8 +186,10 @@ public class ModificaPagina {
         annullaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nascondiFinestra(frameChiamante);
                 frameChiamante.setVisible(true);
+                frameChiamante.setEnabled(true);
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
     }

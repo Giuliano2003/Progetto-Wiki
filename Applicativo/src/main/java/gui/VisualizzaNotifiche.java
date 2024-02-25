@@ -5,11 +5,12 @@ import model.ModificaTesto;
 import model.Utente;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Utilities;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
@@ -70,6 +71,7 @@ public class VisualizzaNotifiche {
      */
     Controller controller = new Controller();
 
+
     /**
      * Instanzia a new Visualizza notifiche.
      *
@@ -81,11 +83,142 @@ public class VisualizzaNotifiche {
         frame = new JFrame("Visualizza Notifiche");
         this.controller=controller;
         frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                frameChiamante.setVisible(true);
+                frameChiamante.setEnabled(true);
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
         textPaneOriginale.setEditable(false);
         textPaneModificato.setEditable(false);
         JScrollPane scrollPaneOriginale = new JScrollPane(textPaneOriginale);
         JScrollPane scrollPaneModificato = new JScrollPane(textPaneModificato);
 
+
+        textPaneOriginale.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JTextPane source = (JTextPane) e.getSource();
+                int offset = source.viewToModel(e.getPoint());// Ottieni la posizione del clic nel documento
+                String paginaDestinazione = null;
+                // Ottieni la parola a partire dalla posizione del clic
+                try {
+                    int start = Utilities.getWordStart(source, offset);
+                    int end = Utilities.getWordEnd(source, offset);
+                    String parolaCliccata = source.getText(start, end - start);
+                    paginaDestinazione= hashMap.get(parolaCliccata);
+                    controller.setPagina(paginaDestinazione);
+                    if(paginaDestinazione != null)
+                    {
+                        controller.attivaFlag();
+                        CercaPagina cercaPagina = new CercaPagina(frame,controller);
+                        cercaPagina.mostraFinestra();
+                        frame.setEnabled(false);
+                    }
+                }catch (BadLocationException e1)
+                {
+                    e1.printStackTrace();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                        //override
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                    //override
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                    //override
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                    //override
+            }
+        });
+
+        textPaneModificato.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JTextPane source = (JTextPane) e.getSource();
+                int offset = source.viewToModel(e.getPoint());// Ottieni la posizione del clic nel documento
+                String paginaDestinazione = null;
+                // Ottieni la parola a partire dalla posizione del clic
+                try {
+                    int start = Utilities.getWordStart(source, offset);
+                    int end = Utilities.getWordEnd(source, offset);
+                    String parolaCliccata = source.getText(start, end - start);
+                    paginaDestinazione= hashMap.get(parolaCliccata);
+                    controller.setPagina(paginaDestinazione);
+                    if(paginaDestinazione != null)
+                    {
+                        controller.attivaFlag();
+                        CercaPagina cercaPagina = new CercaPagina(frame,controller);
+                        cercaPagina.mostraFinestra();
+                        frame.setEnabled(false);
+                    }
+                }catch (BadLocationException e1)
+                {
+                    e1.printStackTrace();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scrollPaneOriginale, scrollPaneModificato);
         splitPane.setResizeWeight(0.5);
 
@@ -189,6 +322,28 @@ public class VisualizzaNotifiche {
                         visualizzaUtenteButton.setEnabled(true);
                     }
                     titolo=getTitolo(risultati);
+                    ArrayList<String> frasi = new ArrayList<>();
+                    ArrayList<String> pagineDestinazioni = new ArrayList<>();
+                    controller.setFrasiPagina(titolo,frasi,pagineDestinazioni);
+                    for (int k=0;k<frasi.size();k++)
+                    {
+                        if(pagineDestinazioni.get(k) != null)
+                        {
+                            String parola=frasi.get(k);
+                            if(parola.contains(" ") || parola.contains("-") || parola.contains("'")){
+                                String[] parole = parola.split("\\s+|(?<=\\p{Punct})|(?=\\p{Punct})");
+                                for (String s: parole) {
+                                    hashMap.put(s,pagineDestinazioni.get(k));
+                                }
+                            }
+                            else {
+                                hashMap.put(frasi.get(k),pagineDestinazioni.get(k));
+                            }
+                        }
+                        else {
+                            hashMap.put(frasi.get(k), pagineDestinazioni.get(k));
+                        }
+                    }
                     setTestoOriginale(titolo); // mi setto anche il testo originale
                     //mi setto il testo modificato e allo stesso tempo mi faccio ritornare il titolo
                     //del testo originale a cui si riferiva la modifica cosi vado a settare il testo originale
@@ -223,12 +378,15 @@ public class VisualizzaNotifiche {
         indietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nascondiFinestra();
+                    frameChiamante.setVisible(true);
+                    frameChiamante.setEnabled(true);
+                    frame.setVisible(false);
             }
         });
         salvaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                hashMap= new HashMap<>();
                 salvaButton.setEnabled(false);
                 visualizzaButton.setEnabled(true);
                 rifiutaButton.setEnabled(false);

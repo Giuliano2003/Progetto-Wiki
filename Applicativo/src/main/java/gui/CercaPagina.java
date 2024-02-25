@@ -69,6 +69,7 @@ public class CercaPagina {
 
     private Controller controller = new Controller();
 
+    public int flag = 0;
     /**
      * Instanzio a Cerca pagina.
      *
@@ -76,15 +77,18 @@ public class CercaPagina {
      * @param controller     Il controller
      */
     CercaPagina(JFrame frameChiamante, Controller controller) {
-
+        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice device = env.getDefaultScreenDevice();
+        GraphicsConfiguration config = device.getDefaultConfiguration();
         // Creazione della finestra CercaPagine
         frameCerca = new JFrame("Cerca Pagine");
-        frameCerca.setSize(1000, 700);
+        frameCerca.setSize(1900,1800);
         frameCerca.setDefaultCloseOperation(frameCerca.DISPOSE_ON_CLOSE);
         frameCerca.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
                 frameChiamante.setEnabled(true);
+                frameChiamante.setVisible(true);
             }
         });
 
@@ -106,12 +110,70 @@ public class CercaPagina {
         // Creazione dell'area di testo per visualizzare i risultati
         risultatiTextArea = new JTextPane();
         risultatiTextArea.setContentType("text/html");
+        risultatiTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(risultatiTextArea);
-
-
         frameCerca.add(topPanel, BorderLayout.NORTH);
         frameCerca.add(scrollPane, BorderLayout.CENTER);
+        if(controller.flag == 1)
+        {
+            try
+            {
+                controller.setFrasiLinkate(controller.getTitolo(), collegamentiPagina);
+                //il metodo setFrasiLinkate mi riempe frasiLinkateTestoOriginale con tutti i collegamenti, della pagina che stiamo cercando
+                for (String s: collegamentiPagina)
+                {
+                    hashMap.put(s,controller.getPaginaDestinazione(controller.getTitolo(),s));
+                    //getPaginaDestinazione mi ritorna la pagina destinazione del collegamento corrente(s)
+                }
+            }
+            catch (SQLException ex)
+            {
+                JOptionPane.showMessageDialog(null,"Errore con la ricerca !");
+            }
+            //parolePaginaDaCercare sono le frasi della pagina
+            frasiPagina = new ArrayList<>();
+            StringBuilder risultatoFinale = new StringBuilder("<html>");
+            try
+            {
+                controller.cercaPagina(controller.getTitolo(), frasiPagina);
+                //il metodo cercaPagina mi riempe parolePaginaDaCercare con le frasi del testo e mi crea
+                // un istanza attiva di pagina con la pagina  del titolo che ho cercato
 
+                //parolePaginaDaCercare dovvrebbe essere chiamato piu frasiPaginaDaCercare
+
+                ////adesso mi scorro le frasi e vedo quale di queste hanno dei collegamenti
+                //se il collegamento/link è != null allora
+                // sottolineo la frase all'interno del testo (pk ricorda il collegamento è una frase)
+
+                for (String parola: frasiPagina)
+                {
+                    String link = controller.ottieniCollegamentoParola(controller.getTitolo(),parola);
+                    //link è la pag_destinazione della frase corrente(parola) della pagina cercata
+                    if(link != null)
+                    {
+                        risultatoFinale.append("<a href=\"").append(link).append("\">").append(parola).append("</a> ");
+                    }
+                    else
+                    {
+                        risultatoFinale.append(parola).append(" ");
+                    }
+                }
+                risultatoFinale.append("</html>");
+                risultatiTextArea.setText(String.valueOf(risultatoFinale));
+                if(frasiPagina.isEmpty())
+                {
+                    modificaButton.setVisible(false);
+                }else {
+                    modificaButton.setVisible(true);
+                }
+            }
+            catch (SQLException ex)
+            {
+                JOptionPane.showMessageDialog(null,"Errore nella ricerca");
+            }
+            searchBar.setText(controller.getTitolo());
+            controller.disattivaflag();
+        }
 
         searchButton.addActionListener(new ActionListener() {
             //Gli utenti generici del sistema potranno cercare una pagina e il sistema mostrerà la versione corrente del
@@ -119,8 +181,16 @@ public class CercaPagina {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                String titoloPaginaDaCercare = null;
                 collegamentiPagina.clear();
-                String titoloPaginaDaCercare = searchBar.getText();
+                if(controller.flag == 1)
+                {
+                    titoloPaginaDaCercare=controller.getTitolo();
+                }
+                else {
+                    titoloPaginaDaCercare = searchBar.getText();
+                }
+                controller.disattivaflag();
                 try
                 {
                     controller.setFrasiLinkate(titoloPaginaDaCercare, collegamentiPagina);
@@ -165,7 +235,12 @@ public class CercaPagina {
                     }
                     risultatoFinale.append("</html>");
                     risultatiTextArea.setText(String.valueOf(risultatoFinale));
-                    modificaButton.setVisible(true);
+                    if(frasiPagina.isEmpty())
+                    {
+                        modificaButton.setVisible(false);
+                    }else {
+                        modificaButton.setVisible(true);
+                    }
                 }
                 catch (SQLException ex)
                 {
@@ -208,7 +283,9 @@ public class CercaPagina {
                     //creo l istanza attiva per il controller
                     //Pagina pagina = new Pagina(paginaDestinazione);
                     //creo l istanza attiva per il controller
-                    controller.setPagina(paginaDestinazione);
+                    if(paginaDestinazione != null) {
+                        controller.setPagina(paginaDestinazione);
+                    }
                     //se clicco un collegamento si riempe paginaDestinazione e faccio setTestoModificato
                     //se pagDestinazione è null non
                     // deve fare niente di tutto cio
@@ -253,13 +330,14 @@ public class CercaPagina {
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ModificaPagina modificaPagina = null;
                 frasiPagina.clear();
                 ArrayList<String> paginedestinazione = new ArrayList<>();
                 ArrayList<String> frasiLinkate = new ArrayList<>(hashMap.keySet());
                 //se stai navigando senza esserti loggato o registrato
                 if (controller.getUtente() == null || controller.getUtente().getNomeUtente() == null)
                 {
-                    JOptionPane.showMessageDialog(null, "Registrati");
+                    JOptionPane.showMessageDialog(null, "Registrati o Loggati !");
                 }
                 else
                 {
@@ -290,9 +368,10 @@ public class CercaPagina {
                     {
                         JOptionPane.showMessageDialog(null,"Errore con il settaggio delle frasi !");
                     }
-                    ModificaPagina modificaPagina = null;
                     try
                     {
+                        System.out.println(""+controller.getTitolo());
+                        System.out.println(""+controller.getTitolo());
                         modificaPagina = new ModificaPagina(frameCerca, controller);
                     }
                     catch (SQLException ex)
@@ -310,8 +389,10 @@ public class CercaPagina {
         indietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nascondiFinestra(frameChiamante);
                 frameChiamante.setVisible(true);
+                frameChiamante.setEnabled(true);
+                frameCerca.setVisible(false);
+                frameCerca.dispose();
             }
         });
     }

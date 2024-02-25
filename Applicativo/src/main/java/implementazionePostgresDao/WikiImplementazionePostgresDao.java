@@ -1123,6 +1123,70 @@ public class WikiImplementazionePostgresDao implements WikiDao {
             }
         }
     }
+
+    /**
+     * Metodo che mi permette di recuperare la datacreazione dato il titolo dal db
+     * @param titolo il titolo della pagina
+     * @return un date che contiene la data di creazione
+     */
+    @Override
+    public Date getDataCreazioneDB(String titolo) {
+        PreparedStatement preparedStatement = null;
+        try{
+            preparedStatement = connection.prepareStatement("select p.datacreazione from pagina p where p.titolo = ?");
+            preparedStatement.setString(1,titolo);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                return resultSet.getDate(1);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Metodo che mi permette di ottenere l'ora creazione della pagina dato il tiolo
+     * @param titolo il titolo della pagina
+     * @return un Time che indica l'ora creazione della pagina
+     */
+    @Override
+    public Time getOraCreazioneDB(String titolo) {
+        PreparedStatement preparedStatement = null;
+        try{
+            preparedStatement = connection.prepareStatement("select p.oracreazione from pagina p where p.titolo = ?");
+            preparedStatement.setString(1,titolo);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                return resultSet.getTime(1);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
 }
 
 

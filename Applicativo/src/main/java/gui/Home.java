@@ -45,7 +45,7 @@ public class Home {
     /**
      * La label che iniziale che da il benvenuto all'utente.
      */
-    public static JLabel welcomeLabel = new JLabel("Benvenuto su Wikipedia");
+    public static JLabel welcomeLabel = new JLabel("Benvenuto su Progetto-Wiki !");
 
 
     /**
@@ -129,7 +129,7 @@ public class Home {
                 CreaPagina creaPagina1 = new CreaPagina(frame, controller);
                 creaPagina1.mostraFinestra();
             } catch (NullPointerException e1) {
-                JOptionPane.showMessageDialog(null, "Registrati Prima");
+                JOptionPane.showMessageDialog(null, "Registrati o Loggati Prima");
                 e1.printStackTrace();
             }
         });
@@ -143,12 +143,14 @@ public class Home {
         addButtonToPanel(buttonPanel, "Entra", e -> {
             LoginPage loginPage = new LoginPage(frame, controller);
             loginPage.mostraFinestra();
+            frame.setEnabled(false);
         });
 
         addButtonToPanel(buttonPanel, "Controlla Notifiche", e -> {
             if(controller.getUtente() != null) {
                 VisualizzaNotifiche visualizzaNotifiche = new VisualizzaNotifiche(frame, controller);
                 visualizzaNotifiche.mostraFinestra();
+                frame.setEnabled(false);
             }
             else {
                 JOptionPane.showMessageDialog(null,"Registrati O Loggati !");
@@ -164,14 +166,15 @@ public class Home {
             if(controller.utente!=null) {
                 CancellaPagina cancellaPagina = new CancellaPagina(frame, controller);
                 cancellaPagina.mostraFinestra();
+                frame.setEnabled(false);
             } else {
-                JOptionPane.showMessageDialog(null,"Registrati O Loggati !");
+                JOptionPane.showMessageDialog(null,"Registrati O Loggati Prima !");
             }
         });
 
         addButtonToPanel(buttonPanel, "Storia Pagine", e -> {
             if (controller.getUtente() == null) {
-                JOptionPane.showMessageDialog(frame, "Registrati Prima");
+                JOptionPane.showMessageDialog(frame, "Registrati o Loggati Prima");
             } else {
                 StoriaPagine storiaPagine = new StoriaPagine(frame, controller);
                 frame.setEnabled(false);

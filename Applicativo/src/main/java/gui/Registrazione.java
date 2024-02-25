@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -36,64 +38,101 @@ public class Registrazione {
                 this.controller=controller;
                 frame = new JFrame("Registrazione");
                 frame.setSize(400, 300);
-                frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-
-                JPanel mainPanel = new JPanel(new GridLayout(4, 2, 10, 10));
-
-                //creazione del campo utente
-
-                // Etichette e campi di testo per utente
-                JLabel userLabel = new JLabel("Utente:");
-                JTextField userField = new JTextField();
-                mainPanel.add(userLabel);
-                mainPanel.add(userField);
-
-                //creazione del campo password
-                JLabel passwordLabel = new JLabel("Password:");
-                JPasswordField passwordField = new JPasswordField();
-                mainPanel.add(passwordLabel);
-                mainPanel.add(passwordField);
-
-                 //Creazione del campo email
-
-                JLabel emailLabel = new JLabel("Email:");
-                JTextField emailField = new JTextField();
-                mainPanel.add(emailLabel);
-                mainPanel.add(emailField);
-
-                // Pulsante di registrazione
-                JButton registerButton = new JButton("Registrati");
-                JButton indietroButton = new JButton("Indietro");
-                registerButton.addActionListener(new ActionListener() {
+                frame.setLocationRelativeTo(null);
+                frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+                frame.addWindowListener(new WindowListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
-                        try {
-                                //metodo che si occupa di inserire l'utente nel db
-                                controller.addUtente(userField.getText(),passwordField.getText(),emailField.getText());
-                                Home.accessoLabel.setText("Accesso Effettuato come : " + controller.utente.username);
-                                JOptionPane.showMessageDialog(null,"Registrazione Effettuata");
+                    public void windowOpened(WindowEvent e) {
+
+                    }
+
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+
+                    }
+
+                    @Override
+                    public void windowClosed(WindowEvent e) {
                                 frameChiamante.setEnabled(true);
-                                frame.dispose();
-                        } catch (SQLException ex) {
-                            JOptionPane.showMessageDialog(null,"Errore inserimento Utente");
-                        }
-
+                                frameChiamante.setVisible(true);
                     }
-                });
-                indietroButton.addActionListener(new ActionListener() {
+
                     @Override
-                    public void actionPerformed(ActionEvent e) {
-                        frameChiamante.setEnabled(true);
-                        nascondiFinestra();
+                    public void windowIconified(WindowEvent e) {
+
+                    }
+
+                    @Override
+                    public void windowDeiconified(WindowEvent e) {
+
+                    }
+
+                    @Override
+                    public void windowActivated(WindowEvent e) {
+
+                    }
+
+                    @Override
+                    public void windowDeactivated(WindowEvent e) {
+
                     }
                 });
+        JPanel mainPanel = new JPanel(new GridLayout(4, 2, 10, 10));
 
-                // Aggiungi il pulsante al pannello principale
-                mainPanel.add(registerButton);
-                mainPanel.add(indietroButton);
+        //creazione del campo utente
 
-                frame.add(mainPanel);
+        // Etichette e campi di testo per utente
+        JLabel userLabel = new JLabel("Utente:");
+        JTextField userField = new JTextField();
+        mainPanel.add(userLabel);
+        mainPanel.add(userField);
+
+        //creazione del campo password
+        JLabel passwordLabel = new JLabel("Password:");
+        JPasswordField passwordField = new JPasswordField();
+        mainPanel.add(passwordLabel);
+        mainPanel.add(passwordField);
+
+        //Creazione del campo email
+
+        JLabel emailLabel = new JLabel("Email:");
+        JTextField emailField = new JTextField();
+        mainPanel.add(emailLabel);
+        mainPanel.add(emailField);
+
+        // Pulsante di registrazione
+        JButton registerButton = new JButton("Registrati");
+        JButton indietroButton = new JButton("Indietro");
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    //metodo che si occupa di inserire l'utente nel db
+                    controller.addUtente(userField.getText(),passwordField.getText(),emailField.getText());
+                    Home.accessoLabel.setText("Accesso Effettuato come : " + controller.utente.username);
+                    JOptionPane.showMessageDialog(null,"Registrazione Effettuata");
+                    frameChiamante.setEnabled(true);
+                    frame.dispose();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"Errore inserimento Utente");
+                }
+
             }
+        });
+        indietroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameChiamante.setEnabled(true);
+                nascondiFinestra();
+            }
+        });
+
+        // Aggiungi il pulsante al pannello principale
+        mainPanel.add(registerButton);
+        mainPanel.add(indietroButton);
+
+        frame.add(mainPanel);
+    }
 
     /**
      * Metodo per mostare la finestra

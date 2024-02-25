@@ -34,7 +34,44 @@ public class LoginPage {
         this.controller=controller;
         frame = new JFrame("Login Page");
         frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
-        frame.setSize(400, 250);
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                frameChiamante.setEnabled(true);
+                frameChiamante.setVisible(true);
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
+        frame.setSize(800, 450);
         frame.setLocationRelativeTo(null);
         frame.addWindowListener(new WindowListener() {
             @Override
@@ -50,6 +87,7 @@ public class LoginPage {
             @Override
             public void windowClosed(WindowEvent e) {
                         frameChiamante.setVisible(true);
+                        frameChiamante.setEnabled(true);
             }
 
             @Override
@@ -126,6 +164,10 @@ public class LoginPage {
                         controller.setUtente(usernameField.getText());
                         JOptionPane.showMessageDialog(frame, "Login Successful");
                         Home.accessoLabel.setText("Accesso Effettuato come " + controller.getNomeUtente());
+                        frameChiamante.setVisible(true);
+                        frameChiamante.setEnabled(true);
+                        frame.setVisible(false);
+                        frame.dispose();
                         frame.dispose(); // Chiudi la finestra di login dopo il login
                     } else {
                         JOptionPane.showMessageDialog(frame, "Login Failed. Invalid credentials.");
@@ -152,8 +194,10 @@ public class LoginPage {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // Chiudi la finestra di login
-                frameChiamante.setEnabled(true); // Riattiva la finestra chiamante
+                frameChiamante.setVisible(true);
+                frameChiamante.setEnabled(true);
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
         panel.add(backButton, gbc);

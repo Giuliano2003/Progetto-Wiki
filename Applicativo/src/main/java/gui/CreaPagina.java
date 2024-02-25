@@ -6,10 +6,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -127,7 +124,44 @@ public class CreaPagina {
     CreaPagina(JFrame frameChiamante, Controller controller) {
 
         frame = new JFrame("Pagina Iniziale");
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                frameChiamante.setEnabled(true);
+                frameChiamante.setVisible(true);
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
         frame.setSize(1200, 800);
 
         panel1 = new JPanel();
@@ -265,7 +299,10 @@ public class CreaPagina {
         indietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nascondiFinestra();
+                frame.dispose();
+                frameChiamante.setVisible(true);
+                frameChiamante.setEnabled(true);
+                frame.setVisible(false);
             }
         });
 

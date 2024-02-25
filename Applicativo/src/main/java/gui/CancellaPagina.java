@@ -38,6 +38,7 @@ public class CancellaPagina {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
+                framechiamante.setVisible(true);
                 framechiamante.setEnabled(true);
             }
         });

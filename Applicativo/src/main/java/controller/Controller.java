@@ -42,6 +42,9 @@ public class Controller {
      */
     public CronologiaTesto cronologiaTesto = new CronologiaTesto();
 
+
+    public int flag;
+
     /**
      * Gli autori delle pagine
      */
@@ -228,6 +231,30 @@ public class Controller {
                 pagina.addFrasiLinkate(s);
             }
         }
+
+
+    public void setFrasi(ArrayList<String> frasi)
+    {
+        Pagina pagina1 = new Pagina(this.getTitolo());
+        Testo testo1 = new Testo(pagina1);
+        for (String s: frasi) {
+            Frase frase = new Frase(s);
+            testo1.frasiTesto.add(frase);
+        }
+        this.testo=testo1;
+        this.pagina=pagina1;
+    }
+
+    public void setFrasiLink(ArrayList<String> frasi)
+    {
+        Pagina pagina1 = new Pagina(this.getTitolo());
+        Testo testo1 = new Testo(pagina1);
+        for (String s: frasi) {
+            pagina1.addFrasiLinkate(s);
+        }
+        this.testo=testo1;
+        this.pagina=pagina1;
+    }
 
 
 
@@ -861,4 +888,41 @@ public class Controller {
         }
         return false;
     }
+
+    /**
+     * Metodo che restituisce la data di creazione della pagina
+     * @param titolo il titolo della pagina
+     * @return un date che indica la data di creazione della pagina
+     * @throws SQLException
+     */
+
+    public Date getDataCreazione(String titolo) throws SQLException {
+        WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
+        return wikiImplementazionePostgresDao.getDataCreazioneDB(titolo);
+    }
+
+    /**
+     * Metodo che restituisce l'ora di creazione della pagina
+     * @param titolo il titolo della pagina
+     * @return un date che indica l'ora di creazione della pagina
+     * @throws SQLException
+     */
+
+    public Time getOraCreazione(String titolo) throws SQLException {
+        WikiImplementazionePostgresDao wikiImplementazionePostgresDao = new WikiImplementazionePostgresDao();
+        return wikiImplementazionePostgresDao.getOraCreazioneDB(titolo);
+    }
+
+    public void attivaFlag()
+    {
+        this.flag=1;
+    }
+
+    public void disattivaflag()
+    {
+        this.flag=0;
+    }
+
+
+
 }
